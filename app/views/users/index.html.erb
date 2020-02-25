@@ -1,0 +1,10 @@
+ <%# 格納された全データから１行ずつ取り出し、その中から名前と年齢を取り出す %>
+<%= link_to "投稿画面へ", "/users/new" %>
+<% @users.each do |user| %>
+<p>
+  <%= user.name %>
+  <%= user.age %>
+  <%= link_to "編集", "/users/#{user.id}/edit", method: :get %>
+  <%= link_to "削除", "/users/#{user.id}", method: :delete, data: {confirm: "削除しますか？"} %>
+</p>
+<% end %>
